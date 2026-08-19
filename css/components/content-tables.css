@@ -1,0 +1,96 @@
+/**
+ * @file
+ * Generic data tables rendered into the main content area (e.g. a
+ * supporter/member list, or a country breakdown summary). Column count is
+ * not assumed, so this works whether a table has 2 or 4+ columns.
+ */
+
+.region-content table.responsive-enabled {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 16px 0 32px;
+}
+
+.region-content table.responsive-enabled th {
+  text-align: left;
+  padding: 12px 16px;
+  background-color: var(--d29-contrast-2);
+  color: var(--d29-base-4);
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.region-content table.responsive-enabled th a {
+  color: inherit;
+}
+
+.region-content table.responsive-enabled td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--d29-contrast-4);
+}
+
+/* Row striping so rows are easy to tell apart at a glance, regardless of
+ * how many columns the table ends up with. */
+.region-content table.responsive-enabled tbody tr.odd {
+  background-color: var(--d29-base-3);
+}
+
+.region-content table.responsive-enabled tbody tr.even {
+  background-color: var(--d29-base-4);
+}
+
+/* The first table on the page is the primary focus: narrower than full
+ * width and centred, with room either side, rather than sprawling edge to
+ * edge. */
+.region-content table.responsive-enabled:first-of-type {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 900px) {
+  .region-content table.responsive-enabled:first-of-type {
+    width: 100%;
+  }
+}
+
+/*
+ * A heading followed by a table reads as a caption introducing a
+ * secondary/summary table, so it's kept subtle rather than a full section
+ * heading. Drupal's responsive-table JS inserts a column-toggle control
+ * between the heading and the table, so "followed by" has to be checked
+ * with the general sibling combinator (~) rather than the adjacent one (+).
+ */
+.region-content h2:has(~ table.responsive-enabled) {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--d29-contrast-3);
+  margin: 0 0 12px;
+}
+
+.region-content h2:has(~ table.responsive-enabled) ~ table.responsive-enabled {
+  width: 50%;
+}
+
+@media (max-width: 700px) {
+  .region-content h2:has(~ table.responsive-enabled) ~ table.responsive-enabled {
+    width: 100%;
+  }
+}
+
+/* The final row of a summary table (e.g. a "Total" row) stands out from
+ * the data rows above it. */
+.region-content h2:has(~ table.responsive-enabled) ~ table.responsive-enabled tbody tr:last-child {
+  background-color: var(--d29-contrast-2);
+  color: var(--d29-base-4);
+  font-weight: 700;
+}
+
+.region-content h2:has(~ table.responsive-enabled) ~ table.responsive-enabled tbody tr:last-child td {
+  border-bottom: none;
+}

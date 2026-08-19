@@ -1,0 +1,105 @@
+/**
+ * @file
+ * Hero banner: full-width photo band with dark navy overlay, matching the
+ * WordPress site's page-header treatment. The masthead floats transparently
+ * on top of it (see header.css), so top padding here also clears the logo
+ * and nav row.
+ *
+ * Two variants:
+ * - Generic (default): shows the page title, centred, standard heading
+ *   style. Used on every page except the front page.
+ * - `.site-hero--home`: the front page's richer promotional banner (eyebrow,
+ *   large sans-serif headline, dates, intro copy), left-aligned.
+ */
+
+.site-hero {
+  position: relative;
+  background:
+    linear-gradient(to left, rgba(9, 21, 41, 0.6) 0%, rgba(9, 21, 41, 0.6) 100%),
+    url('../../images/hero/hero-banner.avif') center top / cover no-repeat scroll;
+  color: var(--d29-base-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 260px;
+  padding: 120px 0 64px;
+  text-align: center;
+}
+
+.site-hero__inner {
+  color: var(--d29-base-4);
+}
+
+.site-hero a {
+  color: var(--d29-base-4);
+}
+
+.site-hero h1,
+.site-hero .page-title {
+  color: var(--d29-base-4);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .site-hero {
+    min-height: 200px;
+    padding: 96px 0 40px;
+  }
+}
+
+/* Front page variant: rich promotional banner. */
+
+.site-hero--home {
+  justify-content: flex-start;
+  text-align: left;
+  min-height: 420px;
+  padding: 88px 0 40px;
+}
+
+.site-hero--home .site-hero__inner {
+  max-width: 720px;
+}
+
+.site-hero--home__eyebrow,
+.site-hero__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.site-hero--home h1 {
+  font-family: 'Archivo', sans-serif;
+  font-size: 68px;
+  line-height: 1.1;
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.site-hero__accent {
+  color: var(--d29-accent);
+}
+
+.site-hero__dates {
+  font-size: 18px;
+}
+
+@media (max-width: 900px) {
+  .site-hero--home h1 {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-hero--home {
+    min-height: 380px;
+    padding: 80px 0 32px;
+  }
+}
+
+@media (max-width: 500px) {
+  .site-hero--home h1 {
+    font-size: 38px;
+  }
+}

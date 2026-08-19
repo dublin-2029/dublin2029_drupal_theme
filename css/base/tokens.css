@@ -1,0 +1,18 @@
+/**
+ * @file
+ * Colour tokens matching the Dublin 2029 WordPress site branding.
+ */
+
+:root {
+  --d29-contrast: #09162a;
+  --d29-contrast-2: #1c3145;
+  --d29-contrast-3: #344b64;
+  --d29-contrast-4: #ced3d3;
+  --d29-base: #003087;
+  --d29-base-2: #00ab84;
+  --d29-base-3: #f4f8fa;
+  --d29-base-4: #ffffff;
+  --d29-accent: #0085ca;
+  --d29-button: #215bc2;
+  --d29-button-hover: #1a4a9b;
+}

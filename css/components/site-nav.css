@@ -1,0 +1,148 @@
+/**
+ * @file
+ * Horizontal styling for the primary navigation menu, scoped to
+ * .site-masthead__nav so it doesn't affect other menu blocks (e.g. footer
+ * menus).
+ */
+
+.site-masthead__nav nav {
+  flex: 1 1 auto;
+}
+
+.site-masthead__nav h2 {
+  font-size: inherit;
+}
+
+.site-masthead__nav ul.menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.site-masthead__nav .menu-item {
+  margin: 0;
+  padding: 0;
+}
+
+.site-masthead__nav .menu-item a {
+  display: block;
+  padding: 0 16px;
+  line-height: 40px;
+  color: var(--d29-base-4);
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.site-masthead__nav .menu-item a:hover,
+.site-masthead__nav .menu-item a:focus,
+.site-masthead__nav .menu-item a.is-active,
+.site-masthead__nav .menu-item--active-trail > a {
+  color: var(--d29-accent);
+}
+
+.site-nav__toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--d29-base-4);
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 15px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.site-nav__close {
+  display: none;
+}
+
+.site-nav__backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(9, 21, 41, 0.5);
+  /* Must stay below .site-masthead's own z-index (500): the slide-out
+   * panel is a descendant of <header>, which establishes its own stacking
+   * context (position + z-index together always do), so the panel's
+   * higher z-index (600) only wins internally - at the document root the
+   * whole header (and everything in it, including the panel) is ranked by
+   * the header's z-index. If the backdrop outranked that, it would sit on
+   * top of the panel and swallow every click/hover. */
+  z-index: 400;
+}
+
+/*
+ * WordPress collapses to the hamburger/off-canvas menu below ~1200px, so we
+ * match that rather than waiting until true phone widths - otherwise the
+ * horizontal menu has nowhere near enough room and wraps awkwardly.
+ */
+@media (max-width: 1200px) {
+  .site-nav__toggle {
+    display: block;
+  }
+
+  /* The nav panel slides in from the left, off-canvas, over a backdrop
+   * (matching the WordPress site's offside menu direction). */
+  .site-masthead__nav {
+    position: fixed;
+    top: var(--drupal-displace-offset-top, 0px);
+    /* Starts clear of Drupal's admin sidebar (core Navigation module) when
+     * it's present and persistent, instead of sliding out from underneath
+     * it. */
+    left: var(--drupal-displace-offset-left, 0px);
+    z-index: 600;
+    width: 280px;
+    max-width: 82vw;
+    height: calc(100vh - var(--drupal-displace-offset-top, 0px));
+    box-sizing: border-box;
+    overflow-y: auto;
+    background-color: var(--d29-contrast-2);
+    padding: 72px 24px 24px;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.3);
+    transform: translateX(-100%);
+    transition: transform 220ms ease-in-out;
+  }
+
+  .site-masthead__nav.is-open {
+    transform: translateX(0);
+  }
+
+  .site-masthead__nav ul.menu {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .site-masthead__nav .menu-item a {
+    padding: 12px 0;
+    line-height: 1.4;
+  }
+
+  .site-nav__close {
+    display: block;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: var(--d29-base-4);
+    font-size: 32px;
+    line-height: 1;
+    padding: 8px;
+    cursor: pointer;
+  }
+
+  body.nav-open {
+    overflow: hidden;
+  }
+
+  body.nav-open .site-nav__backdrop {
+    display: block;
+    top: var(--drupal-displace-offset-top, 0px);
+  }
+}

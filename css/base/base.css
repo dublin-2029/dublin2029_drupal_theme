@@ -1,0 +1,126 @@
+/**
+ * @file
+ * Base typography and layout matching the Dublin 2029 WordPress site.
+ */
+
+html {
+  /* Full-bleed sections (e.g. #regform) use 100vw-based negative margins,
+   * which can overflow by the scrollbar's width; clip that here rather
+   * than on each section. */
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--d29-base-4);
+  color: var(--d29-contrast-3);
+  font-family: 'Noto Sans', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.layout-container {
+  /* Establishes a positioning context so .site-masthead--overlay (position:
+   * absolute) anchors to where the page content actually starts, rather
+   * than the very top of the document. That matters when Drupal inserts
+   * in-flow admin UI above it (e.g. the core Navigation module's toolbar
+   * control bar for logged-in users) - without this, the transparent
+   * overlay masthead renders at document y:0 and ends up hidden behind
+   * that admin bar instead of appearing below it. */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.layout-content {
+  padding-top: 56px;
+  padding-bottom: 72px;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 40px;
+}
+h2 {
+  font-size: 36px;
+}
+h3 {
+  font-size: 28px;
+}
+h4 {
+  font-size: 24px;
+}
+h5 {
+  font-size: 20px;
+}
+h6 {
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 34px;
+  }
+  h2 {
+    font-size: 31px;
+  }
+  h3 {
+    font-size: 26px;
+  }
+  h4 {
+    font-size: 22px;
+  }
+  h5 {
+    font-size: 19px;
+  }
+  h6 {
+    font-size: 17px;
+  }
+}
+
+a {
+  color: var(--d29-base);
+  text-decoration: none;
+}
+a:hover,
+a:focus,
+a:active {
+  color: var(--d29-contrast);
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

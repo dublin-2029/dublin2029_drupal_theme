@@ -1,0 +1,99 @@
+/**
+ * @file
+ * Unified masthead: logo left, nav right, transparent and floating over the
+ * hero banner until the user scrolls past it, then a solid sticky "mini
+ * header".
+ */
+
+.site-masthead {
+  position: sticky;
+  /* Drupal's toolbar module sets this custom property on <html> to the
+   * admin toolbar's height, so the masthead renders below it instead of
+   * being covered by it (the toolbar bar's z-index is higher than ours). */
+  top: var(--drupal-displace-offset-top, 0px);
+  left: 0;
+  right: 0;
+  z-index: 500;
+  background-color: var(--d29-contrast-2);
+  transition:
+    background-color 150ms ease-in-out,
+    box-shadow 150ms ease-in-out,
+    padding 150ms ease-in-out;
+}
+
+.site-masthead--overlay {
+  position: absolute;
+  background-color: transparent;
+}
+
+.site-masthead--overlay.is-stuck {
+  position: fixed;
+}
+
+.site-masthead.is-stuck {
+  background-color: var(--d29-contrast-2);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
+}
+
+.site-masthead__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.site-masthead.is-stuck .site-masthead__inner {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.site-masthead__branding {
+  display: flex;
+  align-items: center;
+}
+
+.site-masthead .site-logo img {
+  display: block;
+  height: 56px;
+  width: auto;
+  transition: width 150ms ease-in-out;
+}
+
+.site-masthead.is-stuck .site-logo img {
+  width: 175px;
+  height: auto;
+}
+
+.site-masthead .site-name,
+.site-masthead .site-slogan {
+  margin: 0;
+}
+
+.site-masthead__nav {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .site-masthead .site-logo img {
+    height: 44px;
+  }
+}
+
+/*
+ * The sticky sentinel marks the point the masthead should switch from
+ * floating-transparent to solid-and-stuck. It's positioned (via JS, see
+ * sticky-header.js) at the bottom edge of the masthead itself, so the
+ * switch happens as soon as the logo/nav row scrolls out of view rather
+ * than waiting for the whole hero image to pass.
+ */
+[data-sticky-sentinel] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}

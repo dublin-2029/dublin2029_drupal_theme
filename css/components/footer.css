@@ -1,0 +1,120 @@
+/**
+ * @file
+ * Four-column footer + bottom copyright bar.
+ */
+
+.site-footer {
+  background-color: var(--d29-contrast-2);
+  color: var(--d29-base-4);
+}
+
+.site-footer__columns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+@media (max-width: 900px) {
+  .site-footer__columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .site-footer__columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+.site-footer__col h2,
+.site-footer__col h3,
+.site-footer__col .block-title {
+  color: var(--d29-base-4);
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin: 0 0 16px;
+}
+
+.site-footer__col p {
+  margin: 0 0 1em;
+}
+
+.site-footer__col ul.menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-footer__col ul.menu .menu-item {
+  margin: 0 0 10px;
+  padding-left: 1.4em;
+  position: relative;
+}
+
+.site-footer__col ul.menu .menu-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 6px;
+  height: 6px;
+  background-color: var(--d29-accent);
+}
+
+.site-footer a {
+  color: var(--d29-accent);
+}
+.site-footer a:hover,
+.site-footer a:focus {
+  color: var(--d29-contrast-4);
+  text-decoration: underline;
+}
+
+.site-footer__col--social .social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-footer__col--social .social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background-color: var(--d29-accent);
+  color: var(--d29-contrast);
+}
+
+.site-footer__col--social .social-links a:hover,
+.site-footer__col--social .social-links a:focus {
+  background-color: var(--d29-base-3);
+  color: var(--d29-contrast);
+}
+
+.site-footer__col--social .social-links svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.site-footer__bottom {
+  border-top: 1px solid var(--d29-contrast);
+  padding-top: 16px;
+  padding-bottom: 16px;
+  font-size: 13px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  justify-content: center;
+  text-align: center;
+}

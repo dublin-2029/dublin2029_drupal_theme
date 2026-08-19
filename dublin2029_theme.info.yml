@@ -1,0 +1,52 @@
+name: 'Dublin 2029'
+type: theme
+'base theme': false
+version: 1.0.0
+logo: images/logo/logo.png
+regions:
+  header: 'Header (logo)'
+  primary_menu: 'Primary menu'
+  hero: 'Hero banner'
+  breadcrumb: Breadcrumb
+  highlighted: Highlighted
+  help: Help
+  content: Content
+  sidebar_first: 'Sidebar first'
+  footer_brand: 'Footer: Brand blurb'
+  footer_pages: 'Footer: Pages links'
+  footer_policies: 'Footer: Policies links'
+  footer_social: 'Footer: Social icons'
+  footer_bottom: 'Footer: Copyright bar'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+libraries:
+  - dublin2029_theme/tokens
+  - dublin2029_theme/fonts
+  - dublin2029_theme/typography
+  - dublin2029_theme/header
+  - dublin2029_theme/hero
+  - dublin2029_theme/footer
+  - dublin2029_theme/buttons
+  - dublin2029_theme/content-tables
+  - dublin2029_theme/register-form
+  - dublin2029_theme/base
+  - dublin2029_theme/messages
+  - core/normalize
+libraries-extend:
+  user/drupal.user:
+    - dublin2029_theme/user
+  core/drupal.dropbutton:
+    - dublin2029_theme/dropbutton
+  core/drupal.dialog:
+    - dublin2029_theme/dialog
+  file/drupal.file:
+    - dublin2029_theme/file
+  core/drupal.item-list:
+    - dublin2029_theme/item-list
+  core/drupal.progress:
+    - dublin2029_theme/progress
+  core/drupal.tablesort:
+    - dublin2029_theme/drupal.tablesort
+description: 'Custom theme for the Dublin 2029 Worldcon bid site, matching the WordPress site branding.'
+core_version_requirement: ^11
+generator: 'starterkit_theme:11.4.5'
