@@ -4,6 +4,11 @@ Custom Drupal theme for the Dublin 2029 Worldcon bid site, generated from
 core's `starterkit_theme` and built to match the branding of the bid's
 WordPress site (https://dublin2029.ie).
 
+Machine name: `dublin2029_drupal_theme` (deliberately including `_drupal_`,
+rather than the more obvious `dublin2029_theme`, since the organisation's
+GitHub also hosts WordPress projects for the same bid - a bare
+`dublin2029_theme` name reads ambiguously as either).
+
 Additional information on generating themes from Starterkit can be found in
 the [Starterkit documentation](https://www.drupal.org/docs/core-modules-and-themes/core-themes/starterkit-theme).
 

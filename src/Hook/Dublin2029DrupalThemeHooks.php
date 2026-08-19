@@ -1,13 +1,13 @@
 <?php
 
-namespace Drupal\dublin2029_theme\Hook;
+namespace Drupal\dublin2029_drupal_theme\Hook;
 
 use Drupal\Core\Hook\Attribute\Hook;
 
 /**
- * Hook implementations for dublin2029_theme.
+ * Hook implementations for dublin2029_drupal_theme.
  */
-class Dublin2029ThemeHooks {
+class Dublin2029DrupalThemeHooks {
   /**
    * @file
    * Functions to support theming.
