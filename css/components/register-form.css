@@ -127,6 +127,46 @@
   box-sizing: border-box;
 }
 
+/* ConReg's email-check JS (member_email_check.js) inserts a
+ * <span class="member-email-status"> right after the email input, as a
+ * plain sibling in the same .form-item wrapper - a validity indicator
+ * (checkmark/cross/etc., styled by the module's own CSS). Since the input
+ * above is 100% width like every other field, there's no room left on the
+ * line for that sibling, so it wraps onto its own line below the field
+ * instead of sitting beside it. Turning just this field's wrapper into a
+ * row (scoped via :has() so no other field is affected) keeps them side
+ * by side, with the label and any "possible duplicate" warning message
+ * (.members-email-warning, also inserted by the same JS) still spanning
+ * the full width above/below. */
+#regform .form-item:has(> .member-email-status) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+#regform .form-item:has(> .member-email-status) label,
+#regform .form-item:has(> .member-email-status) .description,
+#regform .form-item:has(> .member-email-status) .members-email-warning {
+  flex: 1 1 100%;
+}
+
+#regform .form-item:has(> .member-email-status) .form-email {
+  flex: 1 1 auto;
+  width: auto;
+  min-width: 0;
+}
+
+#regform .form-item:has(> .member-email-status) .member-email-status {
+  flex: 0 0 auto;
+  /* Reserves the indicator's space up front, even before it has any
+   * content: the module's CSS only gives it a character via ::before once
+   * a validity state class is applied, so an empty state has zero content
+   * width - without this, the email field would claim that space while
+   * empty, then visibly narrow the moment a state class appears. */
+  min-width: 32px;
+}
+
 /* Radio/checkbox groups: keep each input with its own label on one line,
  * wrapping whole pairs (never splitting an input from its label). */
 #regform .form-radios,
