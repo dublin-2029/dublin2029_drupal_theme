@@ -1,0 +1,38 @@
+/**
+ * @file
+ * Lays the Dublin 2029 logo icon out beside each member-type card's
+ * content - see templates/form/member-type-card.html.twig, which is kept
+ * as Dublin 2029's own override of ConReg's stock template specifically to
+ * add this icon (Registration Theme has no override here at all, so
+ * without this Dublin 2029 would silently lose it).
+ *
+ * Everything else about member-type-card styling (the --member-type-card-*
+ * colour mapping, box-sizing, border-radius, day-options spacing) is
+ * inherited from Registration Theme's register-form.css unchanged - since
+ * Dublin 2029's colours now flow through the same --rt-* tokens, that
+ * inherited colour mapping already resolves to Dublin 2029's own brand
+ * colours with no override needed here.
+ */
+
+#regform .member-type-card__main {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+#regform .member-type-card__icon {
+  flex: 0 0 auto;
+  width: 56px;
+  height: 56px;
+}
+
+#regform .member-type-card__icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#regform .member-type-card__content {
+  flex: 1 1 auto;
+  min-width: 0;
+}

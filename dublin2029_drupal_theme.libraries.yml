@@ -1,18 +1,18 @@
-tokens:
-  version: VERSION
-  css:
-    base:
-      css/base/tokens.css: {}
 fonts:
   version: VERSION
   css:
     base:
       css/base/fonts.css: {}
-typography:
-  version: VERSION
-  css:
-    base:
-      css/base/base.css: {}
+  dependencies:
+    # Guarantees load order: fonts.css's --rt-font-* overrides must load
+    # AFTER registration_theme/tokens' own :root defaults for those same
+    # custom properties, or the later-loading one wins the cascade
+    # regardless of which is "correct". Computed CSS weight alone doesn't
+    # reliably guarantee this (fonts.css was actually being computed with
+    # a *lower* weight than tokens.css, loading it first and effectively
+    # overriding its own override) - an explicit dependency is a hard
+    # guarantee, not a tie-breaker.
+    - registration_theme/tokens
 header:
   version: VERSION
   css:
@@ -38,126 +38,18 @@ buttons:
   css:
     component:
       css/components/button-colors.css: {}
-content-tables:
+member-type-card-icon:
   version: VERSION
   css:
     component:
-      css/components/content-tables.css: {}
-register-form:
+      css/components/member-type-card-icon.css: {}
+content-tables-extra:
   version: VERSION
   css:
     component:
-      css/components/register-form.css: {}
-base:
-  version: VERSION
-  css:
-    component:
-      css/components/action-links.css:
-        weight: -10
-      css/components/breadcrumb.css:
-        weight: -10
-      css/components/button.css:
-        weight: -10
-      css/components/container-inline.css:
-        weight: -10
-      css/components/details.css:
-        weight: -10
-      css/components/exposed-filters.css:
-        weight: -10
-      css/components/field.css:
-        weight: -10
-      css/components/form.css:
-        weight: -10
-      css/components/icons.css:
-        weight: -10
-      css/components/inline-form.css:
-        weight: -10
-      css/components/link.css:
-        weight: -10
-      css/components/links.css:
-        weight: -10
-      css/components/menu.css:
-        weight: -10
-      css/components/more-link.css:
-        weight: -10
-      css/components/pager.css:
-        weight: -10
-      css/components/tabledrag.css:
-        weight: -10
-      css/components/tableselect.css:
-        weight: -10
-      css/components/tabs.css:
-        weight: -10
-      css/components/textarea.css:
-        weight: -10
-      css/components/ui-dialog.css:
-        weight: -10
-dialog:
-  version: VERSION
-  css:
-    component:
-      css/components/dialog.css:
-        weight: -10
-dropbutton:
-  version: VERSION
-  css:
-    component:
-      css/components/dropbutton.css:
-        weight: -10
-file:
-  version: VERSION
-  css:
-    component:
-      css/components/file.css:
-        weight: -10
-image-widget:
-  version: VERSION
-  css:
-    component:
-      css/components/image-widget.css: {  }
-indented:
-  version: VERSION
-  css:
-    component:
-      css/components/indented.css: {  }
-messages:
-  version: VERSION
-  css:
-    component:
-      css/components/messages.css:
-        weight: -10
-node:
-  version: VERSION
-  css:
-    component:
-      css/components/node.css:
-        weight: -10
-progress:
-  version: VERSION
-  css:
-    component:
-      css/components/progress.css:
-        weight: -10
-drupal.tablesort:
-  version: VERSION
-  css:
-    component:
-      css/components/tablesort.css:
-        weight: -10
-item-list:
-  version: VERSION
-  css:
-    component:
-      css/components/item-list.css:
-        weight: -10
-search-results:
-  version: VERSION
-  css:
-    component:
-      css/components/search-results.css: {  }
-user:
-  version: VERSION
-  css:
-    component:
-      css/components/user.css:
-        weight: -10
+      css/components/content-tables-extra.css: {}
+  dependencies:
+    # Same load-order guarantee as the `fonts` library above: must load
+    # after registration_theme/content-tables, the shared rule this
+    # overrides, regardless of computed weight.
+    - registration_theme/content-tables

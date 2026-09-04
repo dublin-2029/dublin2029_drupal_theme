@@ -2,6 +2,8 @@
  * @file
  * Button colours and shape, extending Starterkit's inherited button.css
  * (which only handles spacing).
+ *
+ * Colors reference Registration Theme's --rt-* tokens - see header.css.
  */
 
 .button,
@@ -10,8 +12,8 @@ a.button,
 input[type='submit'],
 input[type='button'],
 input[type='reset'] {
-  background-color: var(--d29-button);
-  color: var(--d29-base-4);
+  background-color: var(--rt-primary-500);
+  color: var(--rt-white);
   border: none;
   border-radius: 0;
   font-family: 'Noto Sans', sans-serif;
@@ -33,6 +35,6 @@ input[type='button']:hover,
 input[type='button']:focus,
 input[type='reset']:hover,
 input[type='reset']:focus {
-  background-color: var(--d29-button-hover);
-  color: var(--d29-base-4);
+  background-color: var(--rt-primary-700);
+  color: var(--rt-white);
 }

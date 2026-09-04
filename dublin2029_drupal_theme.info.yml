@@ -1,6 +1,6 @@
 name: 'Dublin 2029'
 type: theme
-'base theme': false
+'base theme': registration_theme
 version: 1.0.0
 logo: images/logo/logo.png
 regions:
@@ -20,33 +20,14 @@ regions:
   page_top: 'Page top'
   page_bottom: 'Page bottom'
 libraries:
-  - dublin2029_drupal_theme/tokens
   - dublin2029_drupal_theme/fonts
-  - dublin2029_drupal_theme/typography
-  - dublin2029_drupal_theme/header
   - dublin2029_drupal_theme/hero
-  - dublin2029_drupal_theme/footer
-  - dublin2029_drupal_theme/buttons
-  - dublin2029_drupal_theme/content-tables
-  - dublin2029_drupal_theme/register-form
-  - dublin2029_drupal_theme/base
-  - dublin2029_drupal_theme/messages
-  - core/normalize
-libraries-extend:
-  user/drupal.user:
-    - dublin2029_drupal_theme/user
-  core/drupal.dropbutton:
-    - dublin2029_drupal_theme/dropbutton
-  core/drupal.dialog:
-    - dublin2029_drupal_theme/dialog
-  file/drupal.file:
-    - dublin2029_drupal_theme/file
-  core/drupal.item-list:
-    - dublin2029_drupal_theme/item-list
-  core/drupal.progress:
-    - dublin2029_drupal_theme/progress
-  core/drupal.tablesort:
-    - dublin2029_drupal_theme/drupal.tablesort
-description: 'Custom theme for the Dublin 2029 Worldcon bid site, matching the WordPress site branding.'
+  - dublin2029_drupal_theme/member-type-card-icon
+  - dublin2029_drupal_theme/content-tables-extra
+libraries-override:
+  registration_theme/header: dublin2029_drupal_theme/header
+  registration_theme/footer: dublin2029_drupal_theme/footer
+  registration_theme/buttons: dublin2029_drupal_theme/buttons
+description: 'Custom theme for the Dublin 2029 Worldcon bid site, matching the WordPress site branding. A subtheme of Registration Theme - see README.md for what it overrides vs inherits.'
 core_version_requirement: ^11
 generator: 'starterkit_theme:11.4.5'

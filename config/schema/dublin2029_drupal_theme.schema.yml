@@ -1,0 +1,34 @@
+# Schema for the configuration files of Dublin 2029.
+#
+# Mirrors registration_theme.schema.yml: as a subtheme, Dublin 2029
+# inherits registration_theme.theme's hook_form_system_theme_settings_alter()
+# (theme hooks fire through the active theme's whole base chain), so its own
+# settings page shows the same colour + banner image fields and needs its
+# own schema to match, even though banner_image_path/banner_image_position
+# have no effect for Dublin 2029 (it uses its own hero region instead of
+# the base theme's banner-image mechanism).
+
+dublin2029_drupal_theme.settings:
+  type: theme_settings
+  label: 'Dublin 2029 settings'
+  mapping:
+    primary_color:
+      type: color_hex
+      label: 'Primary color'
+    neutral_color:
+      type: color_hex
+      label: 'Neutral color'
+    header_color:
+      type: color_hex
+      label: 'Header / banner color'
+    banner_image_path:
+      type: string
+      label: 'Banner image path or URL'
+    banner_image_position:
+      type: string
+      label: 'Banner image vertical alignment'
+      constraints:
+        Choice:
+          - top
+          - center
+          - bottom

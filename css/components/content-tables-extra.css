@@ -1,0 +1,26 @@
+/**
+ * @file
+ * Dublin 2029-specific override of Registration Theme's inherited
+ * .conreg-table-section heading style (see content-tables.css): small
+ * caps reads fine in Registration Theme's sans-serif system font, but the
+ * combination of small size and all-caps doesn't work well set in Libre
+ * Baskerville, this theme's heading font (--rt-font-heading) - a serif
+ * face isn't designed to be legible at that size/case combination.
+ * Dublin 2029's headings on these pages (Member List, Member Summary)
+ * were never styled as small-caps captions before ConReg started wrapping
+ * its own headings in .conreg-table-section, so this restores mixed case
+ * at a slightly larger, more comfortable size instead of just accepting
+ * the shared default.
+ *
+ * Loaded via libraries-extend on registration_theme/content-tables (see
+ * dublin2029_drupal_theme.info.yml/.libraries.yml), with an explicit
+ * dependency to guarantee it loads after the shared rule it's overriding -
+ * see the same lesson documented in README.md's "Fonts" section.
+ */
+
+.region-content .conreg-table-section h2,
+.region-content .conreg-table-section h3 {
+  font-size: 1.25rem;
+  text-transform: none;
+  letter-spacing: normal;
+}

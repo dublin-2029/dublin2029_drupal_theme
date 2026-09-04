@@ -3,6 +3,10 @@
  * Horizontal styling for the primary navigation menu, scoped to
  * .site-masthead__nav so it doesn't affect other menu blocks (e.g. footer
  * menus).
+ *
+ * Colors reference Registration Theme's --rt-* tokens - see header.css.
+ * Hover/active uses --rt-primary-500 (raw), not -600: the original accent
+ * color (#0085ca) was brighter than the primary color, not darker.
  */
 
 .site-masthead__nav nav {
@@ -30,7 +34,7 @@
   display: block;
   padding: 0 16px;
   line-height: 40px;
-  color: var(--d29-base-4);
+  color: var(--rt-white);
   font-family: 'Noto Sans', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
@@ -42,14 +46,14 @@
 .site-masthead__nav .menu-item a:focus,
 .site-masthead__nav .menu-item a.is-active,
 .site-masthead__nav .menu-item--active-trail > a {
-  color: var(--d29-accent);
+  color: var(--rt-primary-500);
 }
 
 .site-nav__toggle {
   display: none;
   background: none;
   border: none;
-  color: var(--d29-base-4);
+  color: var(--rt-white);
   font-family: 'Noto Sans', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
@@ -66,7 +70,7 @@
   display: none;
   position: fixed;
   inset: 0;
-  background-color: rgba(9, 21, 41, 0.5);
+  background-color: var(--rt-neutral-backdrop);
   /* Must stay below .site-masthead's own z-index (500): the slide-out
    * panel is a descendant of <header>, which establishes its own stacking
    * context (position + z-index together always do), so the panel's
@@ -102,7 +106,7 @@
     height: calc(100vh - var(--drupal-displace-offset-top, 0px));
     box-sizing: border-box;
     overflow-y: auto;
-    background-color: var(--d29-contrast-2);
+    background-color: var(--rt-header);
     padding: 72px 24px 24px;
     box-shadow: 2px 0 12px rgba(0, 0, 0, 0.3);
     transform: translateX(-100%);
@@ -130,7 +134,7 @@
     right: 16px;
     background: none;
     border: none;
-    color: var(--d29-base-4);
+    color: var(--rt-white);
     font-size: 32px;
     line-height: 1;
     padding: 8px;
