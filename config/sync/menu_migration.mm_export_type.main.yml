@@ -1,0 +1,15 @@
+uuid: c99aa571-0235-4e23-adee-c6618bbc1223
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_migration
+name: main
+label: Main
+destination: codebase
+destination_config:
+  format: json
+  menus:
+    - main
+  export_path: ../config/menu_migration
+weight: 0
