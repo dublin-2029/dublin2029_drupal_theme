@@ -2070,35 +2070,46 @@
         },
         {
             "name": "drupal/registration_theme",
-            "version": "1.0.x-dev",
+            "version": "1.0.0-beta1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/registration_theme.git",
+                "reference": "1.0.0-beta1"
+            },
             "dist": {
-                "type": "path",
-                "url": "themes/registration_theme",
-                "reference": "4b00bca0297670da0ef2f69630759bf49bdc9c8e"
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/registration_theme-1.0.0-beta1.zip",
+                "reference": "1.0.0-beta1",
+                "shasum": "77e210f543d7f139a3c00f537c11c5c85572c5ff"
             },
             "require": {
-                "php": ">=8.3"
+                "drupal/core": "^11"
             },
             "type": "drupal-theme",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.0-beta1",
+                    "datestamp": "1788766445",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
                 "GPL-2.0-or-later"
             ],
             "authors": [
                 {
-                    "name": "James Shields",
-                    "homepage": "https://www.drupal.org/u/lostcarpark",
-                    "role": "Maintainer"
+                    "name": "lostcarpark",
+                    "homepage": "https://www.drupal.org/user/346773"
                 }
             ],
-            "description": "A theme designed for ConReg registration sites. Can be standalone or a base theme.",
+            "description": "A Drupal 11 base theme for ConReg-powered convention/event registration sites, providing accessible page structure, a configurable color palette, and ConReg registration-form styling. Usable standalone or as a base theme for site-specific subthemes.",
             "homepage": "https://www.drupal.org/project/registration_theme",
             "support": {
-                "issues": "https://www.drupal.org/project/issues/registration_theme",
                 "source": "https://git.drupalcode.org/project/registration_theme"
-            },
-            "transport-options": {
-                "symlink": true,
-                "relative": true
             }
         },
         {
@@ -7930,7 +7941,7 @@
     "stability-flags": {
         "drupal/ai_best_practices": 20,
         "drupal/conreg": 10,
-        "drupal/registration_theme": 20
+        "drupal/registration_theme": 10
     },
     "prefer-stable": true,
     "prefer-lowest": false,
