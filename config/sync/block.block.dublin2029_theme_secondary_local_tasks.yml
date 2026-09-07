@@ -1,0 +1,22 @@
+uuid: f9f9cb20-3c75-4a2f-8aad-9a4719397a33
+langcode: en
+status: true
+dependencies:
+  theme:
+    - dublin2029_drupal_theme
+_core:
+  default_config_hash: ydSxdq7R66I8UMC460rOzlfzvlUL4VRbdwc6z9DWaUI
+id: dublin2029_theme_secondary_local_tasks
+theme: dublin2029_drupal_theme
+region: highlighted
+weight: -2
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Secondary tabs'
+  label_display: '0'
+  provider: core
+  primary: false
+  secondary: true
+visibility: {  }

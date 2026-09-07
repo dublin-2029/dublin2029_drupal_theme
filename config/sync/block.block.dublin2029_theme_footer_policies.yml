@@ -1,0 +1,25 @@
+uuid: df32d34e-8ba7-41b2-8d07-8264463f7506
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-policies
+  module:
+    - system
+  theme:
+    - dublin2029_drupal_theme
+id: dublin2029_theme_footer_policies
+theme: dublin2029_drupal_theme
+region: footer_policies
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer-policies'
+settings:
+  id: 'system_menu_block:footer-policies'
+  label: Policies
+  label_display: '1'
+  provider: system
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

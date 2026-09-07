@@ -1,0 +1,16 @@
+uuid: b1ca5324-96e6-4211-b437-68bd0a869b65
+langcode: en
+status: false
+dependencies: {  }
+id: staging
+label: Staging
+description: 'Configuration for staging server.'
+weight: 0
+stackable: false
+no_patching: false
+storage: folder
+folder: ../config/splits/staging
+module: {  }
+theme: {  }
+complete_list: {  }
+partial_list: {  }

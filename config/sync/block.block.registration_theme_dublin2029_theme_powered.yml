@@ -1,0 +1,22 @@
+uuid: 8eb1f1ff-e7b0-4b7e-b49e-a266f25672b7
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - registration_theme
+_core:
+  default_config_hash: eYL19CLDyinGTWYQfBD1DswWzglEotE_kHnHx3AxTXM
+id: registration_theme_dublin2029_theme_powered
+theme: registration_theme
+region: footer_bottom
+weight: 0
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

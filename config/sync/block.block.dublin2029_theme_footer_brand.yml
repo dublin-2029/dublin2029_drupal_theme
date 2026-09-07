@@ -1,0 +1,23 @@
+uuid: d5dd9871-ef45-4f77-b17c-7269a4916123
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:021fb30d-ef3e-4be5-b3a2-1779f334c681'
+  module:
+    - block_content
+  theme:
+    - dublin2029_drupal_theme
+id: dublin2029_theme_footer_brand
+theme: dublin2029_drupal_theme
+region: footer_brand
+weight: 0
+provider: null
+plugin: 'block_content:021fb30d-ef3e-4be5-b3a2-1779f334c681'
+settings:
+  id: 'block_content:021fb30d-ef3e-4be5-b3a2-1779f334c681'
+  label: 'Footer brand blurb'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility: {  }

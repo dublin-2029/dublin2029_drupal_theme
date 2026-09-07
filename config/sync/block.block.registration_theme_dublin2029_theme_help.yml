@@ -1,0 +1,22 @@
+uuid: 76c77bb0-c292-4e1a-b8ee-686f2e6352d8
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - registration_theme
+_core:
+  default_config_hash: VfPFqqxfkomud5CO8DUijw85QIl9GIxh_nIxLOYESxg
+id: registration_theme_dublin2029_theme_help
+theme: registration_theme
+region: help
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

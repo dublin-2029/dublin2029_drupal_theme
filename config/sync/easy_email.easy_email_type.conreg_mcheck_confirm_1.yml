@@ -1,0 +1,29 @@
+uuid: bc1e3aee-e18d-461a-b518-7eba84f1ad5e
+langcode: en
+status: true
+dependencies: {  }
+id: conreg_mcheck_confirm_1
+label: 'ConReg: member found (event 1)'
+key: null
+recipient: {  }
+cc: {  }
+bcc: {  }
+fromName: null
+fromAddress: null
+replyToAddress: null
+subject: 'Your [event_name] support status'
+inboxPreview: null
+bodyHtml:
+  value: '<p>Hi [first_name],</p><p>This is to confirm your support status for [event_name].</p><p>Your supporter details are:</p><p>[member_details]</p><p>If you need to change anything, please log in by clicking here: [login_url]</p><p>Best wishes,</p><p>The [event_name] team.</p>'
+  format: full_html
+bodyPlain: null
+generateBodyPlain: false
+attachment: {  }
+saveAttachment: null
+attachmentScheme: null
+attachmentDirectory: null
+saveEmail: true
+allowSavingEmail: true
+purgeEmails: false
+purgeInterval: null
+purgePeriod: days

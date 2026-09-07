@@ -1,0 +1,8 @@
+uuid: 0007b4f3-bded-4461-96aa-c2d24ca38ea0
+langcode: en
+status: true
+dependencies: {  }
+id: footer-policies
+label: 'Footer Policies'
+description: 'Links shown in the footer Policies column.'
+locked: false

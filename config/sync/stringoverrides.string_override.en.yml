@@ -1,0 +1,43 @@
+contexts:
+  -
+    context: ''
+    translations:
+      -
+        source: 'Check member details'
+        translation: 'Check supporter details'
+      -
+        source: 'How many members?'
+        translation: 'How many people?'
+      -
+        source: 'Member @number'
+        translation: 'Supporter @number'
+      -
+        source: 'Member List'
+        translation: 'Supporter List'
+      -
+        source: 'Member Portal'
+        translation: 'Supporter Portal'
+      -
+        source: "Members' public details are listed below."
+        translation: "Supporters' public details are listed below."
+      -
+        source: 'Membership type'
+        translation: 'Support tier'
+      -
+        source: 'Number of members'
+        translation: 'Number of supporters'
+      -
+        source: 'Please provide the email address that was used to register.'
+        translation: 'Please provide the email address that was used to support.'
+      -
+        source: Registration
+        translation: 'Support the Bid'
+      -
+        source: 'Select number of members to register'
+        translation: 'Select number of supporters'
+      -
+        source: 'Select the number of members to register'
+        translation: 'Select how many people are supporting'
+      -
+        source: 'What would you like on your badge?'
+        translation: 'How would you like your name to display?'

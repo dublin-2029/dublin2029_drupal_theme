@@ -1,0 +1,29 @@
+uuid: 90174481-45de-4966-a7a4-6059d53d1d12
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:8fe92931-99f5-4743-af5c-869fb2f9ec77'
+  module:
+    - block_content
+    - system
+  theme:
+    - registration_theme
+id: registration_theme_dublin2029_theme_hero
+theme: registration_theme
+region: header
+weight: 0
+provider: null
+plugin: 'block_content:8fe92931-99f5-4743-af5c-869fb2f9ec77'
+settings:
+  id: 'block_content:8fe92931-99f5-4743-af5c-869fb2f9ec77'
+  label: 'Hero banner'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: '<front>'

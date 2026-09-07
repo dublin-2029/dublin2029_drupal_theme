@@ -1,0 +1,13 @@
+uuid: 1e553072-6066-4f4e-a171-3d24ec1f3b2b
+langcode: en
+status: true
+dependencies: {  }
+id: volunteer
+label: Volunteer
+description: ''
+eid: 1
+provider: mailerlite
+list_id: '195882931743360923'
+list_name: Test
+communication_method: _any
+member_option: 2

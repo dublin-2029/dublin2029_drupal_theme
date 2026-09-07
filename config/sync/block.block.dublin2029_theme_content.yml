@@ -1,0 +1,22 @@
+uuid: 353fe40a-2bd9-445b-8b84-19a1111c34c9
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - dublin2029_drupal_theme
+_core:
+  default_config_hash: erQSEZF2XUjNmgTl0uNRBzmg18ZGXwUcw2FhApoeuHk
+id: dublin2029_theme_content
+theme: dublin2029_drupal_theme
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

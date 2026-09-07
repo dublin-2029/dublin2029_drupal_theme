@@ -1,0 +1,23 @@
+uuid: dac027ef-a8ed-4419-8813-cfcde7828b5c
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:021fb30d-ef3e-4be5-b3a2-1779f334c681'
+  module:
+    - block_content
+  theme:
+    - registration_theme
+id: registration_theme_dublin2029_theme_footer_brand
+theme: registration_theme
+region: footer_brand
+weight: 0
+provider: null
+plugin: 'block_content:021fb30d-ef3e-4be5-b3a2-1779f334c681'
+settings:
+  id: 'block_content:021fb30d-ef3e-4be5-b3a2-1779f334c681'
+  label: 'Footer brand blurb'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility: {  }

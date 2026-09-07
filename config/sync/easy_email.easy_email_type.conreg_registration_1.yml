@@ -1,0 +1,29 @@
+uuid: cc7953da-0fcc-4a27-a969-c02d6a64ff3b
+langcode: en
+status: true
+dependencies: {  }
+id: conreg_registration_1
+label: 'ConReg: registration (event 1)'
+key: null
+recipient: {  }
+cc: {  }
+bcc: {  }
+fromName: null
+fromAddress: null
+replyToAddress: null
+subject: 'Thank you for supporting [event_name]'
+inboxPreview: null
+bodyHtml:
+  value: '<p>Hi [first_name],</p><p>This is to confirm you have supporter [event_name].</p><p>Your details are:</p><p>[member_details]</p><p>Your payment reference is [payment_id].</p><p>If you would like to upgrade your support tier, please visit our member portal by clicking on this link:&nbsp;[login_url]</p><p>Best wishes,</p><p>The [event_name] team.</p>'
+  format: full_html
+bodyPlain: null
+generateBodyPlain: false
+attachment: {  }
+saveAttachment: null
+attachmentScheme: null
+attachmentDirectory: null
+saveEmail: true
+allowSavingEmail: true
+purgeEmails: false
+purgeInterval: null
+purgePeriod: days

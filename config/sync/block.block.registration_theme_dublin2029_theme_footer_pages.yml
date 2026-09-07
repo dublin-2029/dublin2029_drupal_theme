@@ -1,0 +1,25 @@
+uuid: f13b051a-7a05-4708-9eed-6725fe03ac00
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-pages
+  module:
+    - system
+  theme:
+    - registration_theme
+id: registration_theme_dublin2029_theme_footer_pages
+theme: registration_theme
+region: footer_pages
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer-pages'
+settings:
+  id: 'system_menu_block:footer-pages'
+  label: Pages
+  label_display: '1'
+  provider: system
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

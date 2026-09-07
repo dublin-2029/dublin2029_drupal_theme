@@ -1,0 +1,20 @@
+uuid: 74464d7f-6a07-4328-bf00-ad6a542cde0b
+langcode: en
+status: true
+dependencies:
+  theme:
+    - registration_theme
+_core:
+  default_config_hash: 6aOgWsNTXjqrDm98TXSAjP6qd2nCijD1xw45MrnbK-Y
+id: registration_theme_dublin2029_theme_page_title
+theme: registration_theme
+region: page_title
+weight: 0
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

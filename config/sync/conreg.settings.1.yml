@@ -1,0 +1,196 @@
+payments:
+  system: Stripe
+  mode: Test
+  public_key: stripe_public
+  private_key: stripe_secret
+  currency: EUR
+  symbol: €
+  name: false
+  postcode: false
+  auto_approve: true
+  show_remaining: false
+  types: card
+badge_types: "P|Supporter\r\nF|Friend\r\nS|Super Friend\r\n"
+badge_name_options: "F|Given name only\r\nN|Full name\r\nL|Family name, given name\r\nO|Something else\r\n"
+badge_name_default: F
+days: "W|Weekend\r\nFr|Friday\r\nSa|Saturday\r\nSu|Sunday\r\n"
+member_no_digits: '4'
+registration_intro: 'This is a test site. You will not be registered for any convention.'
+payment_intro: 'This is a test payment. Do not use real credit cards. No charges will be applied. Sample test card: 4242424242424242 (use any future date and any 3 digits for CVV).'
+communications_method:
+  options: "E|Electronic|1\r\nP|Paper|1\r\nB|Both|0\r\n"
+  default: ''
+display_options:
+  options: "F|Full name and preferred name\r\nB|Preferred name only\r\nN|Not at all\r\n"
+  default: F
+member_listing_page:
+  show_members: true
+  show_member_no: false
+  show_countries: false
+  show_summary: true
+display:
+  page_size: 50
+member_type_default: ''
+member:
+  classes:
+    Default:
+      name: Default
+      fields:
+        first_name: 'Given name'
+        last_name: 'Family name'
+        name_description: 'You must enter at least one of first name or last name.'
+        email: Email
+        membership_type: 'Supporter tier'
+        membership_type_description: 'Please select the tier you would like to support at.'
+        membership_days: 'Please select days you would like to join for.'
+        membership_days_description: 'If you leave all days unchecked, you will be joined for the whole weekend. If a weekend membership would work out cheaper than the days you select, you will automatically be upgraded to a full weekend membership.'
+        badge_name_option: 'What name would you like to go by?'
+        badge_name: 'Preferred name'
+        badge_name_description: null
+        display: 'How would you like your name displayed on public supporter lists?'
+        display_description: 'Select how you would like to appear on public supporter lists.'
+        communication_method: null
+        communication_method_description: 'If you select printed communications, you will receive two progress reports during the year.'
+        same_address: 'Same as supporter 1'
+        street: 'Address line 1 (optional)'
+        street2: 'Address line 2 (optional)'
+        city: 'Town/City (optional)'
+        county: 'County/State (optional)'
+        postcode: 'Postal/Zip code (optional)'
+        country: Country
+        country_description: null
+        phone: 'Phone (optional)'
+        birth_date: null
+        age: null
+        age_min: null
+        age_max: null
+      mandatory:
+        first_name: 0
+        last_name: 0
+        street: 0
+        street2: 0
+        city: 0
+        county: 0
+        postcode: 0
+        country: 1
+        birth_date: 0
+        age: 0
+      max_length:
+        first_name: null
+        last_name: null
+        badge_name: null
+        street: null
+        street2: null
+        city: null
+        county: null
+        postcode: null
+  types:
+    P:
+      name: Supporter
+      description: '<ul><li data-list-item-id="eea46fefb0924c68bd8df23d3e3faecd0">Help the bid</li></ul>'
+      descriptionFormat: basic_html
+      price: '20'
+      number_allowed: null
+      badgeType: P
+      memberClass: Default
+      allowFirst: 1
+      active: 1
+      allowDuplicates: false
+      defaultDays: W
+      confirmation: {  }
+    F:
+      name: Friend
+      description: '<ul><li data-list-item-id="e2eae34bee8ac72bf7ad417c8f06b7544">Help the bid</li><li data-list-item-id="e7425731942b109154a852cb77a2af8ab">Attending supplement (should we win the bid)<br><a href="https://staging.dublin2029.ie/support-the-bid/explaining-worldcon-wsfs-memberships/#attending-supplements-for-friend-supporters">What does this mean?</a></li></ul>'
+      descriptionFormat: basic_html
+      price: '150'
+      number_allowed: null
+      badgeType: F
+      memberClass: Default
+      allowFirst: 1
+      active: 1
+      allowDuplicates: false
+      defaultDays: W
+      confirmation: {  }
+    'Y':
+      name: 'Friend (Young Adult)'
+      description: '<ul><li data-list-item-id="e9c188098c4012eaadf9916b31ba1670d">Help the bid</li><li data-list-item-id="e5ff75f261ae9b5bf1347b25b3cdd4eaa">Attending supplement (should we win the bid)<br><a href="https://staging.dublin2029.ie/support-the-bid/explaining-worldcon-wsfs-memberships/#attending-supplements-for-friend-supporters">What does this mean?</a></li></ul><p><em>Must be born on or after 1 January 2004 (i.e. turning no more than 25 in 2029)</em></p>'
+      descriptionFormat: basic_html
+      price: '150'
+      number_allowed: null
+      badgeType: F
+      memberClass: Default
+      allowFirst: 1
+      active: 1
+      allowDuplicates: false
+      defaultDays: W
+      confirmation: {  }
+    S:
+      name: 'Super Friend'
+      description: '<ul><li data-list-item-id="e9290ac53a05c11641fbb82ca07247ee1">Help the bid</li><li data-list-item-id="e21db0fde3710a4de92b63abd75c134c7">Attending supplement (should we win the bid)<br><a href="https://staging.dublin2029.ie/support-the-bid/explaining-worldcon-wsfs-memberships/#attending-supplements-for-friend-supporters">What does this mean?</a></li><li data-list-item-id="ee2ed240e7328d3514931550c5cca89c9">Tokens of our thanks</li></ul>'
+      descriptionFormat: basic_html
+      price: '350'
+      number_allowed: null
+      badgeType: S
+      memberClass: Default
+      allowFirst: 1
+      active: 1
+      allowDuplicates: false
+      defaultDays: W
+      confirmation: {  }
+submit:
+  payment: 'Proceed to Payment Page'
+  free: 'Complete Support'
+confirmation:
+  copy_us: 1
+  from_name: 'Default event'
+  from_email: supporterservices@dublin2029.ie
+  copy_email_to: ''
+  easy_email_type: conreg_registration_1
+  notification_subject: '[full_name] has supported [event_name] '
+member_editable:
+  first_name: 1
+  last_name: 1
+  badge_name: 1
+  street: 1
+  street2: 1
+  city: 1
+  county: 1
+  postcode: 1
+  country: 1
+  age: 0
+  display: 1
+  communication_method: 1
+  phone: 1
+  birth_date: 0
+checkin:
+  display: 'N'
+  communication_method: E
+thanks:
+  title: 'Thank You'
+  thank_you_message: "<p>Thank you for supporting [event_name]!</p><p>You will also receive an email confirmation. If you don't see it, please check your Spam folder.</p><p>Your payment reference is <strong>[reference]</strong>.</p>"
+  thank_you_format: basic_html
+member_check:
+  title: 'Check supporter details'
+  intro: "To check if you have supported, please enter your email address below. For privacy reasons, we can only confirm your supporter information by email. If you don't receive an email within a few minutes, please check your spam folder."
+  confirm_easy_email_type: conreg_mcheck_confirm_1
+  unknown_easy_email_type: conreg_mcheck_unknown_1
+member_edit:
+  intro_text: '<p>This page allows you to edit details of your support. You may edit your badge name, but for real name changes, please contact our supporter team.</p>'
+  intro_format: basic_html
+  email_editable: 0
+  badge_name_editable: 1
+reference:
+  default_country: IE
+  geoplugin: 1
+  no_country_label: ''
+conreg_options:
+  option_groups: '1|checkboxes|mailinglists|Join our mailing lists|0|1'
+  options: "1|1|Get news and updates about the bid|default|0|1|Default|0|0|\r\n2|1|Get updates for volunteers||0|1|Default|0|0|"
+closed_message_text: ''
+closed_message_format: basic_html
+member_upgrades: ''
+discount:
+  enable: 0
+  free_every: null
+member_portal:
+  add_role: '0'

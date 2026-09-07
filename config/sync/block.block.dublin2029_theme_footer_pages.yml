@@ -1,0 +1,25 @@
+uuid: b5b60a91-0f3e-4fa6-a52e-d5113a932314
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-pages
+  module:
+    - system
+  theme:
+    - dublin2029_drupal_theme
+id: dublin2029_theme_footer_pages
+theme: dublin2029_drupal_theme
+region: footer_pages
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer-pages'
+settings:
+  id: 'system_menu_block:footer-pages'
+  label: Pages
+  label_display: '1'
+  provider: system
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }
