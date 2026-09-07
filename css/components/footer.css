@@ -1,11 +1,23 @@
 /**
  * @file
  * Four-column footer + bottom copyright bar.
+ *
+ * Colors reference Registration Theme's --rt-* tokens - see header.css.
+ * Note: the footer background now computes from --rt-neutral (via
+ * --rt-neutral-800) rather than reusing the header's own --d29-contrast-2
+ * value directly, since --rt-header is reserved for the masthead/banner
+ * role specifically - a deliberate, documented, slightly darker footer as
+ * part of this migration (see the subtheme conversion plan).
+ *
+ * The bullet/link/social-icon accent color uses --rt-primary-500 (the raw,
+ * unmixed color), not -600: the original accent color (#0085ca) was
+ * brighter than the button/primary color, not darker, so a darkening mix
+ * moves further from it, not closer.
  */
 
 .site-footer {
-  background-color: var(--d29-contrast-2);
-  color: var(--d29-base-4);
+  background-color: var(--rt-neutral-800);
+  color: var(--rt-white);
 }
 
 .site-footer__columns {
@@ -31,7 +43,7 @@
 .site-footer__col h2,
 .site-footer__col h3,
 .site-footer__col .block-title {
-  color: var(--d29-base-4);
+  color: var(--rt-white);
   font-family: 'Noto Sans', sans-serif;
   font-size: 15px;
   font-weight: 700;
@@ -63,15 +75,15 @@
   top: 0.5em;
   width: 6px;
   height: 6px;
-  background-color: var(--d29-accent);
+  background-color: var(--rt-primary-500);
 }
 
 .site-footer a {
-  color: var(--d29-accent);
+  color: var(--rt-primary-500);
 }
 .site-footer a:hover,
 .site-footer a:focus {
-  color: var(--d29-contrast-4);
+  color: var(--rt-neutral-200);
   text-decoration: underline;
 }
 
@@ -91,14 +103,14 @@
   width: 36px;
   height: 36px;
   padding: 0;
-  background-color: var(--d29-accent);
-  color: var(--d29-contrast);
+  background-color: var(--rt-primary-500);
+  color: var(--rt-neutral-900);
 }
 
 .site-footer__col--social .social-links a:hover,
 .site-footer__col--social .social-links a:focus {
-  background-color: var(--d29-base-3);
-  color: var(--d29-contrast);
+  background-color: var(--rt-neutral-050);
+  color: var(--rt-neutral-900);
 }
 
 .site-footer__col--social .social-links svg {
@@ -108,7 +120,7 @@
 }
 
 .site-footer__bottom {
-  border-top: 1px solid var(--d29-contrast);
+  border-top: 1px solid var(--rt-neutral-900);
   padding-top: 16px;
   padding-bottom: 16px;
   font-size: 13px;

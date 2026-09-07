@@ -10,14 +10,16 @@
  *   style. Used on every page except the front page.
  * - `.site-hero--home`: the front page's richer promotional banner (eyebrow,
  *   large sans-serif headline, dates, intro copy), left-aligned.
+ *
+ * Colors reference Registration Theme's --rt-* tokens - see header.css.
  */
 
 .site-hero {
   position: relative;
   background:
-    linear-gradient(to left, rgba(9, 21, 41, 0.6) 0%, rgba(9, 21, 41, 0.6) 100%),
+    linear-gradient(to left, color-mix(in srgb, var(--rt-neutral-900) 60%, transparent) 0%, color-mix(in srgb, var(--rt-neutral-900) 60%, transparent) 100%),
     url('../../images/hero/hero-banner.avif') center top / cover no-repeat scroll;
-  color: var(--d29-base-4);
+  color: var(--rt-white);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,16 +29,16 @@
 }
 
 .site-hero__inner {
-  color: var(--d29-base-4);
+  color: var(--rt-white);
 }
 
 .site-hero a {
-  color: var(--d29-base-4);
+  color: var(--rt-white);
 }
 
 .site-hero h1,
 .site-hero .page-title {
-  color: var(--d29-base-4);
+  color: var(--rt-white);
   margin: 0;
 }
 
@@ -78,7 +80,11 @@
 }
 
 .site-hero__accent {
-  color: var(--d29-accent);
+  /* --rt-primary-500 (the raw, unmixed color), not -600: the original
+   * accent color (#0085ca) was brighter than the button/primary color,
+   * not darker, so a darkening mix moves further from it, not closer -
+   * see the color migration note in header.css. */
+  color: var(--rt-primary-500);
 }
 
 .site-hero__dates {

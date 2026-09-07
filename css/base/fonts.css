@@ -1,7 +1,21 @@
 /**
  * @file
  * Self-hosted @font-face declarations. No external font CDN requests.
+ *
+ * The :root block below is Dublin 2029's hook into Registration Theme's
+ * font extension point: base.css (inherited from the base theme, not
+ * duplicated here) references --rt-font-body/--rt-font-heading rather than
+ * hardcoded font names, specifically so a subtheme can swap fonts site-wide
+ * by overriding just these two custom properties. This library loads after
+ * the base theme's own tokens.css (which sets the default system-font
+ * fallback for these same properties), so this override wins via normal
+ * cascade order - no need to override tokens.css itself.
  */
+
+:root {
+  --rt-font-body: 'Noto Sans', sans-serif;
+  --rt-font-heading: 'Libre Baskerville', serif;
+}
 
 @font-face {
   font-family: 'Libre Baskerville';
