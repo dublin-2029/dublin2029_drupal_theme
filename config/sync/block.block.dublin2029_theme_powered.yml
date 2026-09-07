@@ -1,0 +1,22 @@
+uuid: 7fcb6fd2-0b79-4e56-8988-4a9ee71d97b3
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - dublin2029_drupal_theme
+_core:
+  default_config_hash: eYL19CLDyinGTWYQfBD1DswWzglEotE_kHnHx3AxTXM
+id: dublin2029_theme_powered
+theme: dublin2029_drupal_theme
+region: footer_bottom
+weight: 0
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

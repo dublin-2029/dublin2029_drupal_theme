@@ -1,0 +1,29 @@
+# Composer-managed dependencies and Drupal core/contrib.
+/vendor/
+/web/core/
+/web/libraries/*
+/web/modules/contrib/
+/web/profiles/contrib/
+/web/themes/contrib/
+/drush/Commands/contrib/
+
+# Local-only Composer override (path repo for registration_theme).
+/composer.local.json
+
+# Standalone contrib checkouts (own git history/remotes, not part of this repo).
+/themes/*
+/modules/*
+/ansible/*
+
+# Runtime/uploaded content.
+/web/sites/*/files/
+
+# Environment-specific settings (per-machine, dropped by Ansible or created locally).
+/web/sites/*/settings.local.php
+
+# Local key files.
+*.key
+
+# Local dev/IDE noise.
+.ddev/.env*
+*.log

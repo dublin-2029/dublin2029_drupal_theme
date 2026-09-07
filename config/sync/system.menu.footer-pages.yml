@@ -1,0 +1,8 @@
+uuid: 8afa7da8-a1bd-40b8-b0fc-398146209576
+langcode: en
+status: true
+dependencies: {  }
+id: footer-pages
+label: 'Footer Pages'
+description: 'Links shown in the footer Pages column.'
+locked: false

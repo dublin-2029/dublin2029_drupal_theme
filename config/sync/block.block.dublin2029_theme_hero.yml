@@ -1,0 +1,29 @@
+uuid: e54f43d2-5b98-446b-a89f-6520e1b9b15f
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:8fe92931-99f5-4743-af5c-869fb2f9ec77'
+  module:
+    - block_content
+    - system
+  theme:
+    - dublin2029_drupal_theme
+id: dublin2029_theme_hero
+theme: dublin2029_drupal_theme
+region: hero
+weight: 0
+provider: null
+plugin: 'block_content:8fe92931-99f5-4743-af5c-869fb2f9ec77'
+settings:
+  id: 'block_content:8fe92931-99f5-4743-af5c-869fb2f9ec77'
+  label: 'Hero banner'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: '<front>'

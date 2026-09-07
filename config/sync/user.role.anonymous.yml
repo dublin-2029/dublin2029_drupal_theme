@@ -1,0 +1,22 @@
+uuid: dd57898d-a4e9-4f91-b222-4ab32860c809
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.restricted_html
+  module:
+    - conreg
+    - filter
+    - system
+_core:
+  default_config_hash: Tus1ZTNXKIOnrennR1hnTbc7wUPBXHTUm5UdCpEhJSk
+id: anonymous
+label: 'Anonymous user'
+weight: 0
+is_admin: false
+permissions:
+  - 'access content'
+  - 'check membership'
+  - 'convention registration'
+  - 'use text format restricted_html'
+  - 'view public members'

@@ -1,0 +1,22 @@
+uuid: 625070e0-0d58-4082-8ac8-7e72038b6f21
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - dublin2029_drupal_theme
+_core:
+  default_config_hash: VfPFqqxfkomud5CO8DUijw85QIl9GIxh_nIxLOYESxg
+id: dublin2029_theme_help
+theme: dublin2029_drupal_theme
+region: help
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

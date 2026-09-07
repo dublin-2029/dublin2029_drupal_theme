@@ -1,0 +1,23 @@
+uuid: e28b7bc0-d3f1-4c93-ac1a-34c17d249fab
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:f9dd2504-09b7-4762-9151-21a0bbfb96cb'
+  module:
+    - block_content
+  theme:
+    - registration_theme
+id: registration_theme_dublin2029_theme_footer_copyright
+theme: registration_theme
+region: footer_bottom
+weight: 0
+provider: null
+plugin: 'block_content:f9dd2504-09b7-4762-9151-21a0bbfb96cb'
+settings:
+  id: 'block_content:f9dd2504-09b7-4762-9151-21a0bbfb96cb'
+  label: Copyright
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility: {  }

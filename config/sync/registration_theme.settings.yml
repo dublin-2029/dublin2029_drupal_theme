@@ -1,0 +1,19 @@
+_core:
+  default_config_hash: RHZP_afllehisH7nKmOKgRgVArznkTpx-B_L85Kg9Rc
+favicon:
+  mimetype: image/svg+xml
+  path: 'public://logo.svg'
+  use_default: false
+features:
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: true
+  node_user_picture: false
+logo:
+  path: 'public://logo.svg'
+  use_default: false
+primary_color: '#e66100'
+neutral_color: '#986a44'
+header_color: '#26313c'
+banner_image_path: 'public://blog-header.jpg'
+banner_image_position: top

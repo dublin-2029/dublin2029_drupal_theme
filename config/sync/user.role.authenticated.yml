@@ -1,0 +1,24 @@
+uuid: 82286b82-c360-4d96-9ea8-d0355523d5f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+  module:
+    - conreg
+    - file
+    - filter
+    - system
+_core:
+  default_config_hash: wkW7P5A53YhGmsgamrmTbfwpZrqdnPYiJdoAZQtdmJg
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access content'
+  - 'convention registration'
+  - 'delete own files'
+  - 'member portal'
+  - 'use text format basic_html'
+  - 'view public members'

@@ -1,0 +1,25 @@
+uuid: 7b881f2c-9092-4d2f-b9b7-5acd9b9aeefe
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-policies
+  module:
+    - system
+  theme:
+    - registration_theme
+id: registration_theme_dublin2029_theme_footer_policies
+theme: registration_theme
+region: footer_policies
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer-policies'
+settings:
+  id: 'system_menu_block:footer-policies'
+  label: Policies
+  label_display: '1'
+  provider: system
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

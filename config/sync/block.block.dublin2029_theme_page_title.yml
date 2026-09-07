@@ -1,0 +1,27 @@
+uuid: 9dae5e1e-6126-4515-a4f6-23e0a5a43e2f
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - dublin2029_drupal_theme
+_core:
+  default_config_hash: 6aOgWsNTXjqrDm98TXSAjP6qd2nCijD1xw45MrnbK-Y
+id: dublin2029_theme_page_title
+theme: dublin2029_drupal_theme
+region: hero
+weight: 0
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    context_mapping: {  }
+    pages: '<front>'

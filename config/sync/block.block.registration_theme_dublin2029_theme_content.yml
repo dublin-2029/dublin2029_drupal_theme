@@ -1,0 +1,22 @@
+uuid: baa0a42c-44a3-46a7-a62e-a96e93a3cbb2
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - registration_theme
+_core:
+  default_config_hash: erQSEZF2XUjNmgTl0uNRBzmg18ZGXwUcw2FhApoeuHk
+id: registration_theme_dublin2029_theme_content
+theme: registration_theme
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

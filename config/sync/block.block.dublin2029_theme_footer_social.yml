@@ -1,0 +1,23 @@
+uuid: 8c18f670-5ddd-4a8c-8699-69a31e5276c0
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:39c35529-222e-4a71-b175-1bc45e3bb1e0'
+  module:
+    - block_content
+  theme:
+    - dublin2029_drupal_theme
+id: dublin2029_theme_footer_social
+theme: dublin2029_drupal_theme
+region: footer_social
+weight: 0
+provider: null
+plugin: 'block_content:39c35529-222e-4a71-b175-1bc45e3bb1e0'
+settings:
+  id: 'block_content:39c35529-222e-4a71-b175-1bc45e3bb1e0'
+  label: Socials
+  label_display: '1'
+  provider: block_content
+  view_mode: full
+visibility: {  }
