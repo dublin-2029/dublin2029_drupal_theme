@@ -15,6 +15,7 @@ The site uses a custom theme, `dublin2029_drupal_theme`, built on [`registration
 - [Key](https://www.drupal.org/project/key) — secure storage of Stripe/MailerLite API credentials (file-based, kept outside the web root and never committed to this repo)
 - [Config Split](https://www.drupal.org/project/config_split) — per-environment configuration overrides (local/staging)
 - [Environment Indicator](https://www.drupal.org/project/environment_indicator) — visual banner identifying which environment you're viewing
+- [Menu Migration](https://www.drupal.org/project/menu_migration) — version-controls the main navigation menu, promoted dev → staging → production the same way configuration is
 - Site configuration is version-controlled under `config/sync/` and managed via `drush config:export`/`config:import`
 
 Deployment to staging and production is handled by a separate `infrastructure-ansible` repository — not part of this one.
@@ -56,7 +57,15 @@ ddev drush site:install --existing-config -y
 
 This builds the database directly from the exported configuration in `config/sync/`, combining first-time install and config import into one step. Database credentials and the hash salt are supplied automatically by DDEV's own generated settings — there's nothing to configure manually for a basic local copy.
 
-### 6. (Optional) Local environment settings
+### 6. Import the main menu
+
+```
+ddev drush menu_migration:import main -y
+```
+
+`site:install --existing-config` only restores *configuration* — the main navigation menu's links are content, so without this step you'd only see Drupal's generic "Home" link. This replaces that with the real navigation from `config/menu_migration/main.json` (see "Updating the main menu" below).
+
+### 7. (Optional) Local environment settings
 
 Create `web/sites/default/settings.local.php` (already gitignored) to show a "LOCAL" environment banner and/or activate the `local` Config Split:
 
@@ -68,7 +77,7 @@ $config['environment_indicator.indicator']['fg_color'] = '#000000';
 // $config['config_split.config_split.local']['status'] = TRUE;
 ```
 
-### 7. Log in as admin
+### 8. Log in as admin
 
 ```
 ddev drush uli
@@ -76,8 +85,19 @@ ddev drush uli
 
 This prints a one-time login link that signs you straight in as the admin account — no password to set or remember for a local copy.
 
-### 8. Open the site
+### 9. Open the site
 
 ```
 ddev launch
 ```
+
+## Updating the main menu
+
+The main navigation menu's links are content (`menu_link_content`), not configuration, so `config:export`/`config:import` never touches them — they're version-controlled separately via [Menu Migration](https://www.drupal.org/project/menu_migration) instead:
+
+- After changing the main menu (via the UI, on whichever environment is the source of truth for navigation), run:
+  ```
+  ddev drush menu_migration:export main
+  ```
+  This writes `config/menu_migration/main.json`. Commit that file along with your other changes.
+- Importing (`drush menu_migration:import main`, run automatically on every deploy) **deletes the target menu's existing links first**, then recreates them from the committed file — the menu always ends up matching whatever was last exported and committed, the same way config import works.
