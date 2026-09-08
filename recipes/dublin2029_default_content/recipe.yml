@@ -1,0 +1,3 @@
+name: 'Dublin 2029 default content'
+description: 'Seeds the main navigation menu, URL aliases, and homepage content blocks (all content, not configuration) on a fresh site.'
+type: 'Site'

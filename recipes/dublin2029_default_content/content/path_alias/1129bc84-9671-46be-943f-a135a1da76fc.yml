@@ -1,0 +1,15 @@
+_meta:
+  version: '1.0'
+  entity_type: path_alias
+  uuid: 1129bc84-9671-46be-943f-a135a1da76fc
+  default_langcode: und
+default:
+  path:
+    -
+      value: /members/list
+  alias:
+    -
+      value: /supporters/list
+  status:
+    -
+      value: true

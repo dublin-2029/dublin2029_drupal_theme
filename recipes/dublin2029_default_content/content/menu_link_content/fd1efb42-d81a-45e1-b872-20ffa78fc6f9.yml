@@ -1,0 +1,39 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: fd1efb42-d81a-45e1-b872-20ffa78fc6f9
+  bundle: menu_link_content
+  default_langcode: en
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: 'Support the bid'
+  menu_name:
+    -
+      value: main
+  link:
+    -
+      uri: 'internal:/supporters/register'
+      title: ''
+      options: {  }
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: -49
+  expanded:
+    -
+      value: false
+  parent:
+    -
+      value: '0'
+  revision_translation_affected:
+    -
+      value: true

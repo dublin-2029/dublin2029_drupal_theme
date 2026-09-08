@@ -1,0 +1,23 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: 021fb30d-ef3e-4be5-b3a2-1779f334c681
+  bundle: basic
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  info:
+    -
+      value: 'Footer brand blurb'
+  reusable:
+    -
+      value: true
+  revision_translation_affected:
+    -
+      value: true
+  body:
+    -
+      value: "<p><strong>Dublin in 2029</strong></p><p>We want to bring the World Science Fiction Convention (Worldcon) to Dublin from 2 to 6 August, 2029. We're asking for your support to make it happen.</p>"
+      format: basic_html
