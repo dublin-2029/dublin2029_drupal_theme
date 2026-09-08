@@ -1,0 +1,15 @@
+_meta:
+  version: '1.0'
+  entity_type: path_alias
+  uuid: 8e69b2d3-47c0-4b19-96f8-89ad9f605b3a
+  default_langcode: und
+default:
+  path:
+    -
+      value: /members/check
+  alias:
+    -
+      value: /supporters/check
+  status:
+    -
+      value: true

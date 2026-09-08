@@ -1,0 +1,15 @@
+_meta:
+  version: '1.0'
+  entity_type: path_alias
+  uuid: 5ffeab93-6006-440a-9a37-06aa8c156bd2
+  default_langcode: und
+default:
+  path:
+    -
+      value: /members/register
+  alias:
+    -
+      value: /supporters/register
+  status:
+    -
+      value: true

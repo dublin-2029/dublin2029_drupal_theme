@@ -15,7 +15,7 @@ The site uses a custom theme, `dublin2029_drupal_theme`, built on [`registration
 - [Key](https://www.drupal.org/project/key) — secure storage of Stripe/MailerLite API credentials (file-based, kept outside the web root and never committed to this repo)
 - [Config Split](https://www.drupal.org/project/config_split) — per-environment configuration overrides (local/staging)
 - [Environment Indicator](https://www.drupal.org/project/environment_indicator) — visual banner identifying which environment you're viewing
-- [Menu Migration](https://www.drupal.org/project/menu_migration) — version-controls the main navigation menu, promoted dev → staging → production the same way configuration is
+- `recipes/dublin2029_default_content` — a Drupal core [recipe](https://www.drupal.org/docs/extending-drupal/drupal-recipes) (built-in as of Drupal 11.3, no contrib module needed) that seeds the main navigation menu, URL aliases, and homepage content blocks (all content, not configuration)
 - Site configuration is version-controlled under `config/sync/` and managed via `drush config:export`/`config:import`
 
 Deployment to staging and production is handled by a separate `infrastructure-ansible` repository — not part of this one.
@@ -57,13 +57,13 @@ ddev drush site:install --existing-config -y
 
 This builds the database directly from the exported configuration in `config/sync/`, combining first-time install and config import into one step. Database credentials and the hash salt are supplied automatically by DDEV's own generated settings — there's nothing to configure manually for a basic local copy.
 
-### 6. Import the main menu
+### 6. Seed the main menu, aliases, and content blocks
 
 ```
-ddev drush menu_migration:import main -y
+ddev drush recipe:apply ../recipes/dublin2029_default_content -y
 ```
 
-`site:install --existing-config` only restores *configuration* — the main navigation menu's links are content, so without this step you'd only see Drupal's generic "Home" link. This replaces that with the real navigation from `config/menu_migration/main.json` (see "Updating the main menu" below).
+This is content, not configuration, so `site:install --existing-config` doesn't restore it — see "Seeded content" below for why, and what to do if it ever needs updating. Safe to run more than once (e.g. if you re-run this against a copy that already has the content) — see that section for why.
 
 ### 7. (Optional) Local environment settings
 
@@ -91,13 +91,16 @@ This prints a one-time login link that signs you straight in as the admin accoun
 ddev launch
 ```
 
-## Updating the main menu
+## Seeded content
 
-The main navigation menu's links are content (`menu_link_content`), not configuration, so `config:export`/`config:import` never touches them — they're version-controlled separately via [Menu Migration](https://www.drupal.org/project/menu_migration) instead:
+The main navigation menu's links, the site's URL aliases, and its homepage content blocks are all **content** (`menu_link_content`, `path_alias`, `block_content` respectively), not configuration — so `config:export`/`config:import` never touches them. Without a separate mechanism, a fresh install would only show Drupal's generic "Home" link and no navigation/aliases/blocks at all.
 
-- After changing the main menu (via the UI, on whichever environment is the source of truth for navigation), run:
-  ```
-  ddev drush menu_migration:export main
-  ```
-  This writes `config/menu_migration/main.json`. Commit that file along with your other changes.
-- Importing (`drush menu_migration:import main`, run automatically on every deploy) **deletes the target menu's existing links first**, then recreates them from the committed file — the menu always ends up matching whatever was last exported and committed, the same way config import works.
+These 12 items are seeded via `recipes/dublin2029_default_content` — a Drupal core recipe (Drupal 11.3+; no contrib module required) with a `content/` directory of exported YAML files, applied via `drush recipe:apply`. Unlike a plain content-import, recipe application matches content by UUID and **skips anything that already exists** rather than creating a duplicate or erroring — confirmed by testing it against this dev site's own already-seeded database, where re-applying left all three entity counts unchanged. That makes it safe to include in the Ansible deploy pipeline unconditionally, on every deploy, with no first-install/redeploy branching needed.
+
+The trade-off of "skip" as the safety behaviour: re-applying the recipe **never updates** already-existing content either. So this is still, deliberately, a **one-time seed** — on the basis that this content changes rarely. If you need to update it — e.g. after editing the menu, an alias, or a block on whichever environment is the source of truth — re-export and commit:
+
+```
+ddev drush content:export menu_link_content <id> --dir=../recipes/dublin2029_default_content/content
+```
+
+(repeat per entity, or per entity type with `--bundle`/`--with-dependencies` — see `ddev drush content:export --help`). If updates become frequent enough that "skip" stops being good enough — e.g. you need already-provisioned staging/production to actually pick up a content change, not just skip past it — that's worth revisiting with a proper promotion mechanism at that point, rather than assumed to work today.

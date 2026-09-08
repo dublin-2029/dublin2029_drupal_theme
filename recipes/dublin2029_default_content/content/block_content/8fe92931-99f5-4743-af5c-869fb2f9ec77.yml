@@ -1,0 +1,23 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: 8fe92931-99f5-4743-af5c-869fb2f9ec77
+  bundle: basic
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  info:
+    -
+      value: 'Hero banner content'
+  reusable:
+    -
+      value: true
+  revision_translation_affected:
+    -
+      value: true
+  body:
+    -
+      value: '<p class="site-hero__eyebrow">A bid for the 87th Worldcon</p><h1>F&aacute;ilte! <span class="site-hero__accent">(Welcome)</span></h1><p class="site-hero__dates"><strong>2 &ndash; 6 August, 2029</strong></p><p>We want to bring the World Science Fiction Convention (Worldcon) to Dublin. We&rsquo;re asking for your support to make it happen.</p>'
+      format: full_html

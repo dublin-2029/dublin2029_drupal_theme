@@ -1,0 +1,39 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: 737e9309-b557-496b-bb2f-44df2e16980f
+  bundle: menu_link_content
+  default_langcode: en
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: 'Supporter list'
+  menu_name:
+    -
+      value: main
+  link:
+    -
+      uri: 'internal:/supporters/list'
+      title: ''
+      options: {  }
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: 0
+  expanded:
+    -
+      value: false
+  parent:
+    -
+      value: '0'
+  revision_translation_affected:
+    -
+      value: true

@@ -1,0 +1,15 @@
+_meta:
+  version: '1.0'
+  entity_type: path_alias
+  uuid: bafaee60-00a5-4d5b-96fe-ab0b86a8b4d9
+  default_langcode: und
+default:
+  path:
+    -
+      value: /members/portal
+  alias:
+    -
+      value: /supporters/portal
+  status:
+    -
+      value: true
