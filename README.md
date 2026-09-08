@@ -65,7 +65,19 @@ ddev drush recipe:apply ../recipes/dublin2029_default_content -y
 
 This is content, not configuration, so `site:install --existing-config` doesn't restore it — see "Seeded content" below for why, and what to do if it ever needs updating. Safe to run more than once (e.g. if you re-run this against a copy that already has the content) — see that section for why.
 
-### 7. (Optional) Local environment settings
+### 7. Set up Stripe and MailerLite API keys
+
+Stripe and MailerLite credentials are stored as plain files in the project root (never committed — already covered by `.gitignore`'s `*.key` pattern), read by the Key module. Where they'll live on staging/production is still being finalised; locally, the project root keeps things simple:
+
+- **Stripe**: sign up for a Stripe account if you don't have one, and use its **test mode** keys (never live) — see [What are Stripe API keys and how to find them](https://support.stripe.com/questions/what-are-stripe-api-keys-and-how-to-find-them). Copy them into:
+  - `stripe-secret.key` — the secret key (`sk_test_...`)
+  - `stripe-public.key` — the publishable key (`pk_test_...`)
+- **MailerLite**: sign up for an account, then generate an API token — see [MailerLite API key, Group ID, and documentation](https://www.mailerlite.com/help/where-to-find-the-mailerlite-api-key-groupid-and-documentation). Copy it into:
+  - `mailerlite.key`
+
+Each file should contain just the key value, nothing else.
+
+### 8. (Optional) Local environment settings
 
 Create `web/sites/default/settings.local.php` (already gitignored) to show a "LOCAL" environment banner and/or activate the `local` Config Split:
 
@@ -77,7 +89,7 @@ $config['environment_indicator.indicator']['fg_color'] = '#000000';
 // $config['config_split.config_split.local']['status'] = TRUE;
 ```
 
-### 8. Log in as admin
+### 9. Log in as admin
 
 ```
 ddev drush uli
@@ -85,7 +97,7 @@ ddev drush uli
 
 This prints a one-time login link that signs you straight in as the admin account — no password to set or remember for a local copy.
 
-### 9. Open the site
+### 10. Open the site
 
 ```
 ddev launch
@@ -104,3 +116,60 @@ ddev drush content:export menu_link_content <id> --dir=../recipes/dublin2029_def
 ```
 
 (repeat per entity, or per entity type with `--bundle`/`--with-dependencies` — see `ddev drush content:export --help`). If updates become frequent enough that "skip" stops being good enough — e.g. you need already-provisioned staging/production to actually pick up a content change, not just skip past it — that's worth revisiting with a proper promotion mechanism at that point, rather than assumed to work today.
+
+## Developing ConReg locally
+
+To work on [ConReg](https://www.drupal.org/project/conreg) itself, rather than just consuming the published release:
+
+1. Clone it into the project root (gitignored, outside this repo's own history):
+   ```
+   git clone https://git.drupalcode.org/project/conreg.git modules/conreg
+   ```
+2. Create `composer.local.json` at the project root if it doesn't already exist (gitignored, local-only), and add a `path` repository for it:
+   ```json
+   {
+       "repositories": [
+           {
+               "type": "path",
+               "url": "modules/conreg",
+               "options": { "symlink": true }
+           }
+       ],
+       "require": {
+           "drupal/conreg": "1.0.x-dev"
+       }
+   }
+   ```
+   Match the `require` version to whatever branch you're actually on — Composer infers a `dev-` stability version from the branch name, which the real, committed requirement (`^1@beta`) wouldn't accept on its own. This local override takes precedence via the `merge-plugin`/`replace: true` setting already in the main `composer.json`.
+3. If the checkout doesn't already have its own `composer.json` declaring `"name": "drupal/conreg"` and `"type": "drupal-module"`, add one locally (uncommitted) — Composer's path-repository resolution needs it to recognize the checkout as an installable package.
+4. Run `composer update drupal/conreg` — this symlinks `web/modules/contrib/conreg` to your local checkout.
+
+**Before committing `composer.lock`**: temporarily move `composer.local.json` aside and re-run `composer update drupal/conreg`, to confirm the lock file resolves to the real published package (a proper `git`/`zip` source), not your local path. Skipping this check is exactly what broke a fresh install once already during this project's setup — see git history around the `registration_theme` path-repo fix if you want the full story.
+
+## Developing Registration Theme locally
+
+Same pattern as ConReg, for [`registration_theme`](https://www.drupal.org/project/registration_theme) — and since it's already the site's base theme, this is the live, working example to copy from:
+
+1. Clone it into the project root:
+   ```
+   git clone https://git.drupalcode.org/project/registration_theme.git themes/registration_theme
+   ```
+2. Add a `path` repository for it in `composer.local.json`. If you're also set up for ConReg above, add to the *same* file rather than creating a second one — `repositories` is a single array, `require` a single object:
+   ```json
+   {
+       "repositories": [
+           {
+               "type": "path",
+               "url": "themes/registration_theme",
+               "options": { "symlink": true }
+           }
+       ],
+       "require": {
+           "drupal/registration_theme": "1.0.x-dev"
+       }
+   }
+   ```
+3. The theme's own checkout already ships a `composer.json` declaring `"name": "drupal/registration_theme"` / `"type": "drupal-theme"`, so there's nothing to add there.
+4. Run `composer update drupal/registration_theme` — symlinks `web/themes/contrib/registration_theme` to your local checkout.
+
+Same caution as ConReg applies: move `composer.local.json` aside and re-run `composer update drupal/registration_theme` before ever committing `composer.lock`, to make sure it's locked to the real published package, not your local path.
